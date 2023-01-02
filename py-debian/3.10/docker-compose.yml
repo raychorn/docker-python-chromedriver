@@ -1,0 +1,5 @@
+# build dockerfie
+version: '3'
+services:
+  python:
+    build: .
