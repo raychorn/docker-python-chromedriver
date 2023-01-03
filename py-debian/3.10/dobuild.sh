@@ -5,4 +5,8 @@
 # build image from docker-compose file
 docker-compose build --no-cache --force-rm --pull
 
-docker tag python-chromedriver:3.10 310_python:latest
+docker tag 310_python:latest 10.0.0.239:5000/310_python:latest
+docker tag 310_python:latest 10.0.0.120:49153/310_python:latest
+
+docker push 10.0.0.239:5000/310_python:latest
+docker push 10.0.0.120:49153/310_python:latest
