@@ -11,6 +11,15 @@ RUN apt-get install -yqq unzip
 RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip
 RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
 
+RUN apt-get install -yqq htop
+RUN apt-get install -yqq zsh
+RUN apt-get install -yqq wget
+
+RUN sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
+RUN git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+RUN echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+
 # set display port to avoid crash
 ENV DISPLAY=:99
 
